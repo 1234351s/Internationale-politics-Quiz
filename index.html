@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Правда или неправда</title>
+  <link rel="stylesheet" href="stylke.css">
+</head>
+<body>
+
+  <main class="card">
+    <h1>Правда или неправда</h1>
+
+    <div id="questionText"></div>
+
+    <div class="options">
+      <label class="option">
+        <input type="radio" name="answer" value="true">
+        <span>Правда</span>
+      </label>
+
+      <label class="option">
+        <input type="radio" name="answer" value="false">
+        <span>Неправда</span>
+      </label>
+    </div>
+
+    <button id="submitBtn">Ответить</button>
+
+    <div id="result" class="result"></div>
+  </main>
+
+  <script src="javascript.js" defer></script>
+</body>
+</html>
