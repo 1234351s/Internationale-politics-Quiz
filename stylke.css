@@ -1,7 +1,7 @@
 body{
   margin:0;
   font-family:Inter,Arial,sans-serif;
-  background:#f3f4f6;
+  background:#ffffff;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -54,4 +54,14 @@ button{
   margin-top:16px;
   font-size:16px;
   font-weight:600;
+}
+.img {
+    max-width: 100%;
+    height: auto;
+}
+.quiz {
+    text-align: center;
+    margin-bottom: 20px;
+    
+
 }
