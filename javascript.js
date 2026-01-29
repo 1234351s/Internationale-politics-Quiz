@@ -97,6 +97,47 @@ function renderQuiz() {
       qWrap.appendChild(imgBlock);
     }
 
+    
+    if (qi === 2) {
+      const imgBlock = document.createElement('div');
+      imgBlock.className = 'image-block';
+
+      const img = document.createElement('img');
+      img.src = './frage-3.jpg'; 
+      img.alt = 'Darstellung der Globalisierung';
+
+      const source = document.createElement('div');
+      source.className = 'image-source';
+      source.innerHTML =
+        'Neue Allianzen<br>' +
+        'Abrufdatum: 22.01.2026<br>' +
+        'URL : https://share.google/images/BbwmS9HlndELyTNLA';
+
+      imgBlock.appendChild(img);
+      imgBlock.appendChild(source);
+      qWrap.appendChild(imgBlock);
+    }
+
+        if (qi === 3) {
+      const imgBlock = document.createElement('div');
+      imgBlock.className = 'image-block';
+
+      const img = document.createElement('img');
+      img.src = './frage-4.jpg'; 
+      img.alt = 'Darstellung der Globalisierung';
+
+      const source = document.createElement('div');
+      source.className = 'image-source';
+      source.innerHTML =
+        'Russland und Westen<br>' +
+        'Abrufdatum: 22.01.2026<br>' +
+        'URL :https://share.google/images/3gnQEAxg7zG0aTmMk';
+
+      imgBlock.appendChild(img);
+      imgBlock.appendChild(source);
+      qWrap.appendChild(imgBlock);
+    }
+
 
     const options = document.createElement('div');
     options.className = 'options';
