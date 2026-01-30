@@ -3,38 +3,42 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Globalisierung Quiz</title>
-  <link rel="stylesheet" href="stylke.css" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <title>Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="./Globus.png">
+
 </head>
 <body>
-  <div class="text-shirft">
-  
-  <main class="quiz-container" aria-labelledby="quiz-title">
-    <h1 id="quiz-title">Globalisierung Quiz</h1>
 
-    <div class="progress-wrap" aria-hidden="false">
-      <div class="progress-info">
-        <span id="progress-text">0 / 4 beantwortet</span>
-        <span id="remaining-text">Verbleibend: 4</span>
-      </div>
-      <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-        <div id="progress-fill"></div>
+  <div class="fixed-top-bar">
+    <div class="fixed-top-inner">
+      <h1 id="quiz-title">Quiz</h1>
+
+      <div class="progress-wrap">
+        <div class="progress-info">
+          <span id="progress-text">0 / 4 beantwortet</span>
+          <span id="remaining-text">Verbleibend: 4</span>
+        </div>
+        <div class="progress-bar">
+          <div id="progress-fill"></div>
+        </div>
       </div>
     </div>
+  </div>
 
+  <main class="quiz-container" aria-labelledby="quiz-title">
     <form id="quiz" class="quiz" novalidate></form>
 
-    <div class="controls">
-      <button id="checkBtn" type="button" disabled>Antworten prüfen</button>
-      <button id="resetBtn" type="button" class="secondary">Zurücksetzen</button>
+    <div class="quiz-buttons">
+      <button id="checkBtn" class="btn check-btn" type="button" disabled>Antworten prüfen</button>
+      <button id="resetBtn" class="btn reset-btn" type="button">Zurücksetzen</button>
     </div>
 
     <div id="result" class="result" aria-live="polite"></div>
   </main>
-  </div>
 
   <script src="javascript.js"></script>
 </body>

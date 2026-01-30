@@ -46,6 +46,21 @@ const resultEl = document.getElementById('result');
 
 function renderQuiz() {
   quizEl.innerHTML = '';
+
+  const imgPaths = [
+    './frage-1.jpg',
+    './frage-2.jpg',
+    './frage-3.jpg',
+    './frage-4.jpg'
+  ];
+
+  const imgSources = [
+    'Darstellung der Globalisierung<br>Abrufdatum: 22.01.2026<br>URL : https://www.geeksforgeeks.org/macroeconomics/what-is-globalisation-explain-advantages-disadvantages-and-types-of-globalisation/',
+    'Darstellung der Beziehungen zwischen China und den USA<br>Abrufdatum: 22.01.2026<br>URL: https://share.google/images/VZHMxS7ochP5BLTEy',
+    'Neue Allianzen<br>Abrufdatum: 22.01.2026<br>URL : https://share.google/images/BbwmS9HlndELyTNLA',
+    'Russland und Westen<br>Abrufdatum: 22.01.2026<br>URL :https://share.google/images/3gnQEAxg7zG0aTmMk'
+  ];
+
   questions.forEach((q, qi) => {
     const qWrap = document.createElement('div');
     qWrap.className = 'question';
@@ -55,89 +70,19 @@ function renderQuiz() {
     qText.textContent = `${qi + 1}. ${q.text}`;
     qWrap.appendChild(qText);
 
-    
-    if (qi === 0) {
-      const imgBlock = document.createElement('div');
-      imgBlock.className = 'image-block';
+    const imgBlock = document.createElement('div');
+    imgBlock.className = 'image-block';
 
-      const img = document.createElement('img');
-      img.src = './frage-1.jpg'; 
-      img.alt = 'Darstellung der Globalisierung';
+    const img = document.createElement('img');
+    img.src = imgPaths[qi];
 
-      const source = document.createElement('div');
-      source.className = 'image-source';
-      source.innerHTML =
-        'Darstellung der Globalisierung<br>' +
-        'Abrufdatum: 22.01.2026<br>' +
-        'URL : https://www.geeksforgeeks.org/macroeconomics/what-is-globalisation-explain-advantages-disadvantages-and-types-of-globalisation/';
+    const source = document.createElement('div');
+    source.className = 'image-source';
+    source.innerHTML = imgSources[qi];
 
-      imgBlock.appendChild(img);
-      imgBlock.appendChild(source);
-      qWrap.appendChild(imgBlock);
-    }
-
-   
-    if (qi === 1) {
-      const imgBlock = document.createElement('div');
-      imgBlock.className = 'image-block';
-
-      const img = document.createElement('img');
-      img.src = './frage-2.jpg'; 
-      img.alt = 'Beziehungen zwischen China und den USA';
-
-      const source = document.createElement('div');
-      source.className = 'image-source';
-      source.innerHTML =
-        'Darstellung der Beziehungen zwischen China und den USA<br>' +
-        'Abrufdatum: 22.01.2026<br>' +
-        'URL: https://share.google/images/VZHMxS7ochP5BLTEy';
-
-      imgBlock.appendChild(img);
-      imgBlock.appendChild(source);
-      qWrap.appendChild(imgBlock);
-    }
-
-    
-    if (qi === 2) {
-      const imgBlock = document.createElement('div');
-      imgBlock.className = 'image-block';
-
-      const img = document.createElement('img');
-      img.src = './frage-3.jpg'; 
-      img.alt = 'Darstellung der Globalisierung';
-
-      const source = document.createElement('div');
-      source.className = 'image-source';
-      source.innerHTML =
-        'Neue Allianzen<br>' +
-        'Abrufdatum: 22.01.2026<br>' +
-        'URL : https://share.google/images/BbwmS9HlndELyTNLA';
-
-      imgBlock.appendChild(img);
-      imgBlock.appendChild(source);
-      qWrap.appendChild(imgBlock);
-    }
-
-        if (qi === 3) {
-      const imgBlock = document.createElement('div');
-      imgBlock.className = 'image-block';
-
-      const img = document.createElement('img');
-      img.src = './frage-4.jpg'; 
-      img.alt = 'Darstellung der Globalisierung';
-
-      const source = document.createElement('div');
-      source.className = 'image-source';
-      source.innerHTML =
-        'Russland und Westen<br>' +
-        'Abrufdatum: 22.01.2026<br>' +
-        'URL :https://share.google/images/3gnQEAxg7zG0aTmMk';
-
-      imgBlock.appendChild(img);
-      imgBlock.appendChild(source);
-      qWrap.appendChild(imgBlock);
-    }
-
+    imgBlock.appendChild(img);
+    imgBlock.appendChild(source);
+    qWrap.appendChild(imgBlock);
 
     const options = document.createElement('div');
     options.className = 'options';
@@ -168,9 +113,12 @@ function renderQuiz() {
     quizEl.appendChild(qWrap);
   });
 
+  document.querySelectorAll('.question').forEach((el, i) => {
+    el.style.animationDelay = `${i * 0.08}s`;
+  });
+
   updateProgress();
 }
-
 
 function onAnswerChange() {
   const name = this.name;
@@ -198,7 +146,39 @@ function updateProgress() {
   progressFill.style.width = `${percent}%`;
 
   checkBtn.disabled = answered !== total;
-  resultEl.textContent = '';
+  resultEl.style.opacity = 0;
+}
+
+function launchConfetti() {
+  const colors = ["#ff3838","#ff9f1a","#fffa65","#32ff7e","#18dcff","#7d5fff","#4b4b4b"];
+
+  for (let i = 0; i < 45; i++) {
+    const conf = document.createElement("div");
+    conf.className = "confetti";
+
+    conf.style.left = Math.random() * 100 + "vw";
+    conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    conf.style.transform = `rotate(${Math.random() * 360}deg)`;
+    conf.style.animationDuration = 1.5 + Math.random() * 1 + "s";
+
+    document.body.appendChild(conf);
+
+    setTimeout(() => conf.remove(), 2200);
+  }
+}
+
+function launchFailParticles() {
+  for (let i = 0; i < 40; i++) {
+    const p = document.createElement("div");
+    p.className = "fail-particle";
+
+    p.style.left = Math.random() * 100 + "vw";
+    p.style.animationDuration = 1.1 + Math.random() * 0.7 + "s";
+
+    document.body.appendChild(p);
+
+    setTimeout(() => p.remove(), 2000);
+  }
 }
 
 function checkAnswers() {
@@ -229,12 +209,23 @@ function checkAnswers() {
   });
 
   resultEl.textContent = `Ergebnis: ${score} von ${questions.length} richtig.`;
+
+  setTimeout(() => {
+    resultEl.style.opacity = 1;
+  }, 10);
+
   checkBtn.disabled = true;
+
+  if (score === questions.length) {
+    launchConfetti();
+  } else if (score === 0) {
+    launchFailParticles();
+  }
 }
 
 function resetQuiz() {
   renderQuiz();
-  resultEl.textContent = '';
+  resultEl.style.opacity = 0;
   progressFill.style.width = '0%';
 }
 
