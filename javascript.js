@@ -20,9 +20,9 @@ const questions = [
   {
     text: "Welche neuen Allianzen entstehen heute?",
     options: [
-      { text: "Keine", correct: false },
-      { text: "Länder arbeiten allein", correct: false },
-      { text: "Neue Bündnisse zwischen Ländern, die früher kaum zusammengearbeitet haben", correct: true }
+      { text: "EU", correct: false },
+      { text: "keine ", correct: false },
+      { text: "Board of Peace & Coalition of the Willing", correct: true }
     ]
   },
   {
@@ -32,6 +32,42 @@ const questions = [
       { text: "Neutral", correct: false },
       { text: "Konfliktreich und angespannt", correct: true },
       { text: "Ohne Kontakt", correct: false }
+    ]
+  },
+    {
+    text: " Was bedeutet Inflation?",
+    options: [
+      { text: "Dass Geld mehr wert wird", correct: false },
+      { text: "Dass Waren billiger werden", correct: false },
+      { text: "Dass die gleiche Geldmenge weniger wert ist", correct: true },
+      { text: "Dass man mehr Geld bekommt", correct: false }
+    ]
+  },
+      {
+    text: "Welche Organisation ist für  militärische Sicherheit?",
+    options: [
+      { text: "EU", correct: false },
+      { text: "UNO", correct: false },
+      { text: "NATO", correct: true },
+      { text: "WHO", correct: false }
+    ]
+  },
+        {
+    text: "Was ist ein wichtiger Grund für Inflation?",
+    options: [
+      { text: "Zu viele Arbeitslose", correct: false },
+      { text: "Sinkende Nachfrage", correct: false },
+      { text: "Steigende Produktionskosten", correct: true },
+      { text: "Weniger Geld im Umlauf", correct: false }
+    ]
+  },
+        {
+    text: "Was ist eine wichtige Aufgabe der UNO?",
+    options: [
+      { text: "Handel zwischen Ländern regeln", correct: false },
+      { text: "Globale Plattform für Friedenssicherung bieten", correct: true },
+      { text: "Europa schützen", correct: false },
+      { text: "Banken kontrollieren", correct: false }
     ]
   }
 ];
@@ -51,14 +87,22 @@ function renderQuiz() {
     './frage-1.jpg',
     './frage-2.jpg',
     './frage-3.jpg',
-    './frage-4.jpg'
+    './frage-4.jpg',
+    './frage-5.jpg',
+    './frage-6.jpg',
+    './frage-7.jpg',
+'./frage-8.jpg',
   ];
 
   const imgSources = [
     'Darstellung der Globalisierung<br>Abrufdatum: 22.01.2026<br>URL : https://www.geeksforgeeks.org/macroeconomics/what-is-globalisation-explain-advantages-disadvantages-and-types-of-globalisation/',
     'Darstellung der Beziehungen zwischen China und den USA<br>Abrufdatum: 22.01.2026<br>URL: https://share.google/images/VZHMxS7ochP5BLTEy',
     'Neue Allianzen<br>Abrufdatum: 22.01.2026<br>URL : https://share.google/images/BbwmS9HlndELyTNLA',
-    'Russland und Westen<br>Abrufdatum: 22.01.2026<br>URL :https://share.google/images/3gnQEAxg7zG0aTmMk'
+    'Russland und Westen<br>Abrufdatum: 22.01.2026<br>URL :https://share.google/images/3gnQEAxg7zG0aTmMk',
+    'Inflation – Erklärung und Grafik <br>Abrufdatum: 01.02.2026<br> URL: https://share.google/images/5ZfKMxQKkIHJ5uLyz',
+    'NATO und EU – Zusammenarbeit und Sicherheit<br>Abrufdatum: 01.02.2026<br>URL: https://share.google/images/j0ARliFRDFWWJeFly',
+    'Inflation – Preisentwicklung und Wirtschaft<br>Abrufdatum: 01.02.2026<br>URL: https://share.google/images/TqTG2iB6WQdZ9GaCc',
+    'Vereinte Nationen (UNO) – Logo<br>Abrufdatum: 01.02.2026<br>URL: https://de.wikipedia.org/wiki/Vereinte_Nationen'
   ];
 
   questions.forEach((q, qi) => {
