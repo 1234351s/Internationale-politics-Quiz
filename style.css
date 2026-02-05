@@ -378,7 +378,7 @@ color:var(--text);
   top: 14px;
   left: 18px;
   height: 100px;     
-  width: 150px;
+  width: auto;
   z-index: 2000;
   border-radius: 8px; 
 }
