@@ -313,3 +313,25 @@ function resetQuiz() {
 renderQuiz();
 checkBtn.addEventListener('click', checkAnswers);
 resetBtn.addEventListener('click', resetQuiz);
+const btn = document.getElementById('theme-toggle');
+
+const themeToggle = document.getElementById("themeToggle");
+
+
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark");
+  themeToggle.textContent = "☀️ Light";
+}
+
+
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+
+  if (document.body.classList.contains("dark")) {
+    themeToggle.textContent = "☀️ Light";
+    localStorage.setItem("theme", "dark");
+  } else {
+    themeToggle.textContent = "🌙 Dark";
+    localStorage.setItem("theme", "light");
+  }
+});
